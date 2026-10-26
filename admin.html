@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backoffice - Arxemil</title>
+  <link href="/dist/output.css" rel="stylesheet">
+  <script src="/assets/js/admin.js" defer></script>
+</head>
+<body class="bg-surface">
+  <!-- Sidebar (simplified) -->
+  <div class="flex">
+    <div class="flex-1 p-4">
+      <!-- Tabs navigation -->
+      <div class="flex gap-2 mb-4">
+        <button id="tab-btn-agenda" class="bg-primary-container text-on-primary-container font-bold py-2 px-4 rounded" onclick="switchTab('agenda')">Agenda</button>
+        <button id="tab-btn-servicios" class="text-on-surface-variant font-semibold py-2 px-4 rounded" onclick="switchTab('servicios')">Servicios</button>
+        <button id="tab-btn-equipo" class="text-on-surface-variant font-semibold py-2 px-4 rounded" onclick="switchTab('equipo')">Equipo</button>
+        <button id="tab-btn-config" class="text-on-surface-variant font-semibold py-2 px-4 rounded" onclick="switchTab('config')">Configuración</button>
+      </div>
+
+      <!-- Agenda Tab (read‑only) -->
+      <div id="content-agenda" class="flex flex-col gap-4">
+        <div class="bg-surface-container-low p-4 rounded-xl flex items-center gap-2 border">
+          <label class="font-label-sm text-label-sm text-on-surface-variant" for="agenda-date-filter">Filtrar por fecha:</label>
+          <input type="date" id="agenda-date-filter" class="h-10 px-3 rounded-lg bg-surface-container text-on-surface border"/>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="min-w-full bg-surface-container-low rounded-xl border">
+            <thead class="bg-surface-container">
+              <tr>
+                <th class="px-4 py-2 text-left font-label-sm text-on-surface-variant">Fecha</th>
+                <th class="px-4 py-2 text-left font-label-sm text-on-surface-variant">Hora</th>
+                <th class="px-4 py-2 text-left font-label-sm text-on-surface-variant">Cliente</th>
+                <th class="px-4 py-2 text-left font-label-sm text-on-surface-variant">Barbero</th>
+                <th class="px-4 py-2 text-left font-label-sm text-on-surface-variant">Servicio</th>
+                <th class="px-4 py-2 text-left font-label-sm text-on-surface-variant">Estado</th>
+              </tr>
+            </thead>
+            <tbody id="appointments-tbody" class="divide-y divide-surface-container-high">
+              <!-- rows injected by admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Placeholder containers for other tabs -->
+      <div id="content-servicios" class="hidden">Servicios content</div>
+      <div id="content-equipo" class="hidden">Equipo content</div>
+      <div id="content-config" class="hidden">Configuración content</div>
+    </div>
+  </div>
+</body>
+</html>
